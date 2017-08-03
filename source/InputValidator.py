@@ -10,7 +10,6 @@ class InputValidator:
         # When this code is finished it will return either true or false depending on if the input
         #  values are how they should be entered.
 
-        # Functions in this class should all be static.
 
         if len(command_arr) == 3:
             return True
