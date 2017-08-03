@@ -14,13 +14,14 @@ class Interpreter:
     def interpret(self, command):
         command_arr = command.split()
         if InputValidator.validate_input(command_arr):
+            self.command_dict[command_arr[0]](command_arr)
+
             return 'That was correct format'
         else:
             return 'that wasnt the correct format'
 
-    def add_command(self, *args):
-        options = OptionProvider.add_options(self)
-        options[args[0]]()
+    def add_command(self, command_arr):
+        print(command_arr)
 
     def delete_command(self, *args):
         print("in the delete command")

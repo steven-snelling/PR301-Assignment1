@@ -10,7 +10,8 @@ class InputValidator:
         # When this code is finished it will return either true or false depending on if the input
         #  values are how they should be entered.
 
-        # Functions in this class should all be static.
+        # This is different from the inputValidator which will clean the information the user adds to
+        # the system via the add command
 
         if len(command_arr) == 3:
             return True
