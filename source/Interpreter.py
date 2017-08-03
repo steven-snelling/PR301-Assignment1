@@ -1,5 +1,5 @@
-from OptionProvider import *
 
+from AddCommand import AddCommand
 from InputValidator import InputValidator
 
 class Interpreter:
@@ -14,15 +14,15 @@ class Interpreter:
 
     def interpret(self, command):
         command_arr = command.split()
-        if InputValidator.validate_input(command_arr):
+        if InputValidator.validate_command(command_arr):
             self.command_dict[command_arr[0]](command_arr)
-
             return 'That was correct format'
         else:
             return 'that wasnt the correct format'
 
     def add_command(self, command_arr):
-        print(command_arr)
+        options = self.get_options(command_arr)
+        AddCommand(options).run()
 
     def delete_command(self, *args):
         print("in the delete command")
@@ -32,3 +32,14 @@ class Interpreter:
 
     def exit_cmd(self):
         self.is_active = False
+
+    def get_options(self, arr):
+        for command_item in arr:
+            if '-' in command_item:
+                option_arr = list(command_item)
+                option_arr.pop(0)
+        if len(option_arr) == 0:
+            print("no options provided")
+            return False
+        else:
+            return option_arr
