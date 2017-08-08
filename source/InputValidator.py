@@ -9,8 +9,17 @@ class InputValidator:
 
         # When this code is finished it will return either true or false depending on if the input
         #  values are how they should be entered.
+        print(command_arr)
 
         if len(command_arr) == 3:
+            if InputValidator.command_isaplha(command_arr[0]):
+                return True
+            else: False
+        else:
+            return False
+
+    def command_isaplha(command):
+        if command.isalpha():
             return True
         else:
             return False

@@ -10,4 +10,4 @@ class AddCommand(GenericCommand):
         super(AddCommand, self).__init__(in_options)
 
     def run(self):
-        print(super().my_options)
+        print(self.my_options)
